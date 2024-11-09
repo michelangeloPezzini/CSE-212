@@ -1,41 +1,40 @@
 public static class Arrays
 {
     /// <summary>
-    /// This function will produce an array of size 'length' starting with 'number' followed by multiples of 'number'.  For 
-    /// example, MultiplesOf(7, 5) will result in: {7, 14, 21, 28, 35}.  Assume that length is a positive
-    /// integer greater than 0.
+    /// This method generates an array of 'count' elements, starting with 'start' and followed by its multiples. 
+    /// For example, calling MultiplesOf(7, 5) will return: {7, 14, 21, 28, 35}. The 'count' must be a positive integer.
     /// </summary>
-    /// <returns>array of doubles that are the multiples of the supplied number</returns>
+    /// <returns>An array of integers representing the multiples of the given number.</returns>
     public static int[] MultiplesOf(int start, int count)
     {
-        // Step 1: Initialize an array to hold the multiples
+        // Step 1: Create an array to store the calculated multiples
         int[] multiples = new int[count];
 
-        // Step 2: Loop to calculate each multiple
+        // Step 2: Iterate to calculate each multiple and assign it to the array
         for (int i = 0; i < count; i++)
         {
-            // Step 3: Store each calculated multiple in the array
+            // Step 3: Fill the array with multiples of the 'start' number
             multiples[i] = start * (i + 1);
         }
 
-        // Step 4: Return the array
+        // Step 4: Return the filled array
         return multiples;
     }
 
     public class ListOperations
     {
-        // Function to rotate a list to the right by a given amount
+        // Function to rotate the elements of a list to the right by a specified number of positions
         public static List<int> RotateListRight(List<int> data, int amount)
         {
-            // Step 1: Calculate effective rotation using modulo
+            // Step 1: Calculate the effective rotation, accounting for cases where the amount exceeds the list size
             int n = data.Count;
             int effectiveRotation = amount % n;
 
-            // Step 2: Slice the list into two parts
+            // Step 2: Split the list into two parts based on the rotation value
             List<int> part1 = data.GetRange(n - effectiveRotation, effectiveRotation);
             List<int> part2 = data.GetRange(0, n - effectiveRotation);
 
-            // Step 3: Reconstruct the list by concatenating the two parts
+            // Step 3: Combine the two parts to form the rotated list
             List<int> rotatedList = new List<int>();
             rotatedList.AddRange(part1);
             rotatedList.AddRange(part2);
